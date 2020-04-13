@@ -23,11 +23,16 @@ int b_count(){
     return _count;
 }
 
+void b_update(T_Record* p, int pr,char* s,char* de){
+    p->price = pr;
+    strcpy(p->subject, s);
+    strcpy(p->department, de);
+}
+
 void b_create(int n,char* bn, char* sn, int pr, char* sp,char* s,char* de,char*pw){
     int index = b_first_available();
     Books[index] = (T_Record*)malloc(sizeof(T_Record));
     T_Record* p = Books[index];
-    p->no = n+1;	
     strcpy(p->book_name, bn);
     strcpy(p->seller_name, sn);  
     p->price = pr;
@@ -89,6 +94,7 @@ int b_getprice(T_Record* p){
 char* b_getpassword(T_Record* p){
     return p->password;
 }
-int b_getno(T_Record* p){
-	return p->no;
+int b_getsno(T_Record* p){
+    return p->no;
 }
+
