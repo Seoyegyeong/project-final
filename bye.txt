@@ -1,1 +1,2 @@
 line is in master
+line is in branch ver_B
