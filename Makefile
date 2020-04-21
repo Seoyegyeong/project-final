@@ -3,6 +3,7 @@ CFLAGS = -g -Wall
 TARGETS = main
 OBJECTS = main.c books.o
 .SUFFIXES = .c .o
+
 main_debug : $(TARGETS)
 main_debug : DEBUGOPTION = -DDEBUG
 

@@ -70,13 +70,12 @@ void create_record(){
     printf("\nCreate success!\n");
 }
 void update_record(){
-    char book_name[30], seller_phone[20], seller_name[20],subject[20],department[20],password[20];
+    char subject[20],department[20];
     int price;
     int num = 0;
     char str[20];
-    char pw[20];
     
-    printf("Enter the book name > ");
+    printf("\nEnter the book name > ");
     scanf("%s",str);
     //check if there is one
     int size = b_count();
@@ -84,13 +83,13 @@ void update_record(){
     b_get_all(bks);
     num =get_list_record(str,1);
     if(num > 0){
-        printf("Enter the book no you want to see > ");
+        printf("\nEnter the book no you want to see > ");
         scanf("%d",&num);
         for(int i=0; i<size; i++){
         T_Record* p = bks[i];
         if(num == b_getsno(p)){
             if(check_pw(bks[i])== true){
-                printf("Enter the expect price you want to sell > ");
+                printf("\nPassword correct!\n\nEnter the expect price you want to sell > ");
                 scanf("%d", &price);
                 printf("Enter the subject of this book > ");
                 scanf("%s", subject);
@@ -98,12 +97,12 @@ void update_record(){
                 scanf("%s",department);
                 //b_update
                 b_update(bks[i],price,subject,department);
-                printf("Resaved Book information \nBook name : %s \nBook seller: %s \nPrice: %d \nSeller Phone: %s\nSubject: %s\nDepartment: %s\n",b_getbookname(p),b_getsellername(p),b_getprice(p),b_getsellername(p),b_getsubject(p),b_getdepartment(p));  
+                printf("\nResaved Book information \nBook name : %s \nBook seller: %s \nPrice: %d \nSeller Phone: %s\nSubject: %s\nDepartment: %s\n",b_getbookname(p),b_getsellername(p),b_getprice(p),b_getsellername(p),b_getsubject(p),b_getdepartment(p));  
                 printf("\nUpdate success!\n");
 
             return;
             } else{
-                printf("PassWord Wrong");
+                printf("\nPassWord Wrong\n");
             }
         }
 
@@ -116,7 +115,7 @@ void update_record(){
 
 void list_record(){
     // 전체 리스트 출력
-    printf("All records.\n");
+    printf("\nAll records.\n");
     int size = b_count();
     T_Record* bks[MAX_MEMBERS];
     b_get_all(bks);
@@ -129,21 +128,21 @@ void list_record(){
 void read_book_record(){
     int num = 0;
     char str[20];
-    bool get=false;
+ 
     //검색 -> 이름 입력, 받음 
-    printf("Enter the book name > ");
+    printf("\nEnter the book name > ");
     scanf("%s",str);
     int size = b_count();
     T_Record* bks[MAX_MEMBERS];
     b_get_all(bks);
     num =get_list_record(str,1);
     if(num > 0){
-        printf("Enter the book no you want to see > ");
+        printf("\nEnter the book no you want to see > ");
         scanf("%d",&num);
         for(int i=0; i<size; i++){
             T_Record* p = bks[i];
             if(num == b_getsno(p)){
-                printf("Book martket \nBook name : %s \nBook seller: %s \nPrice: %d \nSeller Phone: %s\nSubject: %s\nDepartment: %s\n",b_getbookname(p),b_getsellername(p),b_getprice(p),b_getsellername(p),b_getsubject(p),b_getdepartment(p));  
+                printf("\nBook martket \nBook name : %s \nBook seller: %s \nPrice: %d \nSeller Phone: %s\nSubject: %s\nDepartment: %s\n",b_getbookname(p),b_getsellername(p),b_getprice(p),b_getsellername(p),b_getsubject(p),b_getdepartment(p));  
                 return;
             }
         }
@@ -154,9 +153,9 @@ void read_book_record(){
 void read_subject_record(){
     int num = 0;
     char str[20];
-    bool get=false;
+
     //검색 -> 이름 입력, 받음 
-    printf("Enter the subject name > ");
+    printf("\nEnter the subject name > ");
     scanf("%s",str);
     //없는 과목 -> 없음(예외처리)
     int size = b_count();
@@ -164,12 +163,12 @@ void read_subject_record(){
     b_get_all(bks);
     num = get_list_record(str,2);
     if(num > 0){
-        printf("Enter the book no you want to see > ");
+        printf("\nEnter the book no you want to see > ");
         scanf("%d",&num);
         for(int i=0; i<size; i++){
         T_Record* p = bks[i];
         if(num == b_getsno(p)){
-            printf("Book martket \nBook name : %s \nBook seller: %s \nPrice: %d \nSeller Phone: %s\nSubject: %s\nDepartment: %s\n",b_getbookname(p),b_getsellername(p),b_getprice(p),b_getsellername(p),b_getsubject(p),b_getdepartment(p));  
+            printf("\nBook martket \nBook name : %s \nBook seller: %s \nPrice: %d \nSeller Phone: %s\nSubject: %s\nDepartment: %s\n",b_getbookname(p),b_getsellername(p),b_getprice(p),b_getsellername(p),b_getsubject(p),b_getdepartment(p));  
             return;
         }
     }
@@ -191,7 +190,7 @@ bool check_pw(T_Record *p){
 }
 
 int get_list_record(char* name,int co){
-    printf("search for subject\n");
+    printf("\nsearch for subject\n");
     int n =0;
     int size = b_count();
     T_Record* bks[MAX_MEMBERS];
