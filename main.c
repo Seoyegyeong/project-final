@@ -1,6 +1,7 @@
 #include "books.h"
 #include <stdbool.h>
-#define SORT
+
+//#define SORT
 
 // 애플리케이션용 함수 원형
 void create_record();

@@ -110,7 +110,7 @@ void b_delete(T_Record* p){
 	printf("[RECORD] record deleting");
 #endif
 }
-
+/*
 void b_sort(T_Record* a[]){
 	int i,j;
 	for(i=0;i<MAX_MEMBERS;i++){
@@ -137,6 +137,7 @@ void b_sort(T_Record* a[]){
 	}
 
 }
+*/
 char* b_getbookname(T_Record* p){
     return p->book_name;
 }
