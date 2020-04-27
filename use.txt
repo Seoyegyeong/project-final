@@ -2,7 +2,7 @@ You can use this by starting $make main
 After enter the make main, execut ./main
 
 You can choose the number that you want
-1.Create
+1.Create -> you should not use space for name 
 2.Read(by bookname and by subject)
 3.Update -> you have to check your password before using it.
 4.List - sort by alphabet will automatically executed
