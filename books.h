@@ -24,7 +24,7 @@ int b_count();
 void b_create(int n,char* bn, char* sn, int pr, char* sp,char* s,char* de,char*pw); 
 T_Record* b_search_by_name(char* n);                
 void b_update(T_Record* p, int pr,char* s,char* pw); 
-//void b_delete(T_Record* p);     
+void b_delete(T_Record* p);     
 void b_get_all(T_Record* a[]);  
 char* b_to_string(T_Record* p); 
 char* b_getbookname(T_Record* p);
