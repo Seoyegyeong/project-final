@@ -1,0 +1,13 @@
+You can use this by starting $make main
+After enter the make main, execut ./main
+
+You can choose the number that you want
+1.Create
+2.Read(by bookname and by subject)
+3.Update -> you have to check your password before using it.
+4.List - sort by alphabet will automatically executed
+5.Delete -> you have to check your password.
+
+This is simple writing about  HOW-TO-USE this program
+Hope you have good time!
+
