@@ -1,5 +1,6 @@
 #include "books.h"
 #include <stdbool.h>
+#define SORT
 
 // 애플리케이션용 함수 원형
 void create_record();
@@ -9,11 +10,13 @@ bool check_pw(T_Record *p);
 void list_record();
 int get_list_record(char* name, int co);
 void update_record();
+void delete_record();
+void sort_record();
 
 int main(){
     int menu;
     while(1){
-        printf("\nMenu : 1.Create 2.Read(book_name) 3.Read(subject) 4:list 5.update 0.Quit > ");
+        printf("\nMenu : 1.Create 2.Read(book_name) 3.Read(subject) 4:list 5.update 6.delete  0.Quit > ");
         scanf("%d", &menu);
         printf("\n");
         switch(menu){
@@ -32,8 +35,13 @@ int main(){
             case 5:
                 update_record();
                 break;
+			case 6:
+				delete_record();
+				break;
             case 0:
-            default: 
+				return 0;
+            default:
+				printf("\nWrong number\n");
                 return 0;
         }
     }
@@ -119,6 +127,9 @@ void list_record(){
     int size = b_count();
     T_Record* bks[MAX_MEMBERS];
     b_get_all(bks);
+	#ifdef SORT
+	b_sort(bks);
+	#endif
     for(int i=0; i<size; i++){
         T_Record* p = bks[i];
         printf("%d. %s\n", i+1, b_to_string(p));
@@ -211,4 +222,44 @@ int get_list_record(char* name,int co){
     }
     return n;
 }
+
+void delete_record(){
+    int num = 0;
+    char str[20];
+	char check;
+    
+    printf("\nEnter the book name > ");
+    scanf("%s",str);
+    //check if there is one
+    int size = b_count();
+    T_Record* bks[MAX_MEMBERS];
+    b_get_all(bks);
+    num =get_list_record(str,1);
+    if(num > 0){
+        printf("\nEnter the book no you want to delete > ");
+        scanf("%d",&num);
+        for(int i=0; i<size; i++){
+        T_Record* p = bks[i];
+        if(num == b_getsno(p)){
+            if(check_pw(bks[i])== true){
+                printf("\nPassword correct!\nDo you really want to delete this books?(yes: y, no: n) : ");
+				scanf(" %c",&check);
+				if(check == 'n'){
+					printf("\nBack to menu\n");
+					return;
+				}
+				b_delete(p);
+                printf("\nDelete Success!\n");
+            return;
+            } else{
+                printf("\nPassWord Wrong\n");
+            }
+        }
+        return;
+        }
+    }
+    //없으면 unregistered
+    printf("\nUnregisterd name!\n");
+}
+
 

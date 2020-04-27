@@ -1,4 +1,5 @@
 #include "books.h"
+#include <string.h>
 
 T_Record* Books[MAX_MEMBERS]; 
 int _count = 0;
@@ -94,6 +95,48 @@ void b_get_all(T_Record* a[]){
     }
 }
 
+void b_delete(T_Record* p){
+		int i, index;
+		for(i=0; i<MAX_MEMBERS; i++)
+				if(Books[i]==p) {
+						index=i;
+						break;
+				}
+		free(p);
+		Books[index] = NULL;
+		_count--;
+
+#ifdef DEBUG
+	printf("[RECORD] record deleting");
+#endif
+}
+
+void b_sort(T_Record* a[]){
+	int i,j;
+	for(i=0;i<MAX_MEMBERS;i++){
+		if(Books[i]){
+			a[i] = Books[i];
+			#ifdef DEBUG
+			printf("[RECORD] Found Books in i[%d]\n",i);
+			#endif
+			for(j=i;j<MAX_MEMBERS;j++){
+        		if(Books[j]){
+				#ifdef DEBUG
+				printf("[RECORD] Found Books in j[%d]\n",i);
+				printf("string compare with i and j result : %d",strcmp(a[i]->book_name,Books[j]->book_name));
+				#endif
+					if(strcmp(a[i]->book_name,Books[j]->book_name)==1){
+						a[i] = Books[j];
+						#ifdef DEBUG
+						printf("[RECORD] (%d).%s -saved",i,a[i]->book_name);
+						#endif
+					}
+				}
+			}
+		}
+	}
+
+}
 char* b_getbookname(T_Record* p){
     return p->book_name;
 }
