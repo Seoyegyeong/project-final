@@ -1,0 +1,71 @@
+Menu : 1.Create 2.Read(book_name) 3.Read(subject) 4:list 5.update 6.delete  0.Quit > 1
+
+[REOCRD] return count number of books
+Enter the book name you want to sell
+Name > tiger
+Enter your name > seoye
+Enter your phone number > 010-2233-4455
+Enter the expect price you want to sell > 15000
+Enter the subject of this book > social
+Enter the department of this book > novel
+Enter the password of this item > abc
+[REOCRD] return count number of books
+[RECORD] CREATE SUCCESS, Bookname: tiger, Bookprice: 15000, BookSeller: seoye
+
+Create success!
+
+Menu : 1.Create 2.Read(book_name) 3.Read(subject) 4:list 5.update 6.delete  0.Quit > 4
+
+
+All records.
+[REOCRD] return count number of books
+[RECORD] record is gettering 0
+[RECORD] record to string success
+1. [0] tiger / 15000 / 010-2233-4455 / seoye / social
+
+Menu : 1.Create 2.Read(book_name) 3.Read(subject) 4:list 5.update 6.delete  0.Quit > 5
+
+
+Enter the book name > tiger
+[REOCRD] return count number of books
+[RECORD] record is gettering 0
+
+search for subject
+[REOCRD] return count number of books
+[RECORD] record is gettering 0
+[RECORD] record to string success
+[0] tiger / 15000 / 010-2233-4455 / seoye / social
+
+Enter the book no you want to see > 0
+Enter the password of your book > abc
+
+Password correct!
+
+Enter the expect price you want to sell > 30000
+Enter the subject of this book > social
+Enter the department of this book > novel
+[RECORD] update scuccess for
+ price: 30000
+subject social
+department: novel
+
+Resaved Book information
+Book name : tiger
+Book seller: seoye
+Price: 30000
+Seller Phone: seoye
+Subject: social
+Department: novel
+
+Update success!
+
+Menu : 1.Create 2.Read(book_name) 3.Read(subject) 4:list 5.update 6.delete  0.Quit > 4
+
+
+All records.
+[REOCRD] return count number of books
+[RECORD] record is gettering 0
+[RECORD] record to string success
+1. [0] tiger / 30000 / 010-2233-4455 / seoye / social
+
+Menu : 1.Create 2.Read(book_name) 3.Read(subject) 4:list 5.update 6.delete  0.Quit > 
